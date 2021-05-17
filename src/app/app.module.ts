@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,11 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
     HeroesListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: 'crisis-list', component: CrisisListComponent },
+      { path: 'heroes-list', component: HeroesListComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
