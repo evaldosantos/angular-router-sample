@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
@@ -19,7 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     // CommonModule,
     BrowserModule,
-    // BrowserAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
     CrisisCenterModule,
