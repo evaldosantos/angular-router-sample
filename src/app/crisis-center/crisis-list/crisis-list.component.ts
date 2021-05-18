@@ -4,16 +4,15 @@ import { Observable } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
-import { MessageService } from '../../message.service';
 
 @Component({
-  selector: 'app-hero-list',
-  templateUrl: './hero-list.component.html',
-  styleUrls: ['./hero-list.component.css']
+  selector: 'app-crisis-list',
+  templateUrl: './crisis-list.component.html',
+  styleUrls: ['./crisis-list.component.css']
 })
-export class CrisesListComponent implements OnInit {
+export class CrisisListComponent implements OnInit {
 
-  Crises$!: Observable<Crisis[]>;
+  crises$!: Observable<Crisis[]>;
   selectedId = 0;
 
   constructor(
@@ -22,7 +21,7 @@ export class CrisesListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.Crises$ = this.route.paramMap.pipe(
+    this.crises$ = this.route.paramMap.pipe(
       switchMap(params => {
         this.selectedId = parseInt(params.get('id')!, 10);
         return this.service.getCrises();

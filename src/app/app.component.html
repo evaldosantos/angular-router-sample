@@ -1,9 +1,10 @@
 <h1>Angular Router Sample</h1>
 <nav>
-  <a class="button" routerLink="/crisis-list" routerLinkActive="activebutton">Crisis Center</a> | 
+  <a class="button" routerLink="/crisis-center" routerLinkActive="activebutton">Crisis Center</a> | 
   <a class="button" routerLink="/heroes" routerLinkActive="activebutton">Heroes Center</a>
 </nav>
-<div [@routeAnimation]="getAnimationData(routerOutlet)">
+<!-- <div [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>
-</div>
+</div> -->
+<router-outlet></router-outlet>
 

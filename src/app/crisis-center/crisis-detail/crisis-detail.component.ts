@@ -21,9 +21,16 @@ export class CrisisDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id')
-    
-    this.service.getCrisis(+id).subscribe(crisis => this.crisis = crisis);
+    this.route.paramMap.pipe(
+      switchMap(params => {
+        const selectedId = parseInt(params.get('id')!, 10);
+        return this.service.getCrisis(selectedId);
+      })
+    ).subscribe(next => this.crisis = next);
+  }
+
+  goToCrises(crisisId: number) {
+    this.router.navigate(['../', { id: crisisId }], { relativeTo: this.route })
   }
 
 }
