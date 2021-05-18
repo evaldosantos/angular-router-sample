@@ -29,6 +29,10 @@ export class HeroListComponent implements OnInit {
       })
     )
   }
+
+  onSelect(hero: Hero) {
+    this.selectedId = hero.id;
+  }
 }
 
 
