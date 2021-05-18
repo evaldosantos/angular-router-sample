@@ -11,13 +11,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BrowserModule } from '@angular/platform-browser';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    ComposeMessageComponent
+    ComposeMessageComponent,
+    LoginComponent
   ],
   imports: [
     // CommonModule,
