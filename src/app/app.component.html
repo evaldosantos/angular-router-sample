@@ -2,6 +2,7 @@
 <nav>
   <a class="button" routerLink="/crisis-center" routerLinkActive="activebutton">Crisis Center</a> | 
   <a class="button" routerLink="/heroes" routerLinkActive="activebutton">Heroes Center</a> | 
+  <a class="button" routerLink="/admin" routerLinkActive="activebutton">Admin</a> | 
   <a class="button" [routerLink]="[{ outlets: { popup: ['compose'] } }]" routerLinkActive="activebutton">Contact</a>
 </nav>
 <div [@routeAnimation]="getAnimationData(routerOutlet)">
