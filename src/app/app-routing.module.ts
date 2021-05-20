@@ -11,6 +11,10 @@ const appRoutes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule ), 
     canLoad: [AuthGuard] 
   },
+  {
+    path: 'crisis-center',
+    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule)
+  },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ]
