@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, NavigationExtras, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanLoad, NavigationExtras, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
+
+  canLoad(route: Route): boolean|UrlTree {
+    const url = `/${route.path}`;
   
+    return this.checkLogin(url);
+  }
   
   canActivateChild(
     route: ActivatedRouteSnapshot, 
@@ -39,7 +44,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
    * cancel the current navigation and schedule a new one to redirect the user.
    */
   checkLogin(url: string): true|UrlTree {
-    if ( this.authService.isLoggedIn) { return true; }
+    if ( this.authService.isLoggedIn ) { return true; }
 
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
