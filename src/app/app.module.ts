@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module'
 
 
 @NgModule({
@@ -18,7 +18,6 @@ import { LoginComponent } from './auth/login/login.component';
     AppComponent,
     PageNotFoundComponent,
     ComposeMessageComponent,
-    LoginComponent
   ],
   imports: [
     // CommonModule,
@@ -27,6 +26,7 @@ import { LoginComponent } from './auth/login/login.component';
     FormsModule,
     HeroesModule,
     CrisisCenterModule,
+    AuthModule,
     AppRoutingModule,
   ],
   providers: [],
