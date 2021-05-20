@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const appRoutes: Routes = [
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule ) },
   { path: '', redirectTo: '/heroes-list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ]
