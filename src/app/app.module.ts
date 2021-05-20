@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BrowserModule } from '@angular/platform-browser';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AuthModule } from './auth/auth.module'
+import { Router } from '@angular/router';
 
 
 @NgModule({
@@ -32,4 +33,12 @@ import { AuthModule } from './auth/auth.module'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  // Diagnostic only: inspect router configuration
+  constructor(route: Router) {
+    // Use a custom replacer to display function names in the route configs
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    console.log('Routes:', JSON.stringify(route.config, replacer, 2));
+  }
+}
